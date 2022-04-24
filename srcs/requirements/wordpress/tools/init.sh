@@ -1,8 +1,8 @@
 #!bin/bash/
-mv wordpress/ /var/www/
+mv wordpress/ /var/www/wordpress/
 rm latest.tar.gz
 
-mv /tmp/wp-config.php /var/www/wordpress
+mv /tmp/wp-config.php /var/www/wordpress/
 chown -R www-data:www-data /var/www/wordpress/
 
 sed -i -e "s|DATABASE_NAME|'$DATABASE_NAME'|g" /var/www/wordpress/wp-config.php
