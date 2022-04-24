@@ -14,5 +14,6 @@ echo "CREATE USER IF NOT EXISTS '$DATABASE_USR'@'%' IDENTIFIED BY '$DATABASE_PWD
 echo "GRANT ALL PRIVILEGES ON $DATABASE_NAME.* TO '$DATABASE_USR'@'%';"
 
 echo "flush privileges;"
+service mysql stop
 
-exec /usr/bin/mysqld --user=mysql --console
+exec /usr/sbin/mysqld -u root
