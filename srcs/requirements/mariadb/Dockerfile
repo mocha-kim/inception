@@ -14,4 +14,4 @@ ENTRYPOINT	["/usr/bin/dumb-init"]
 
 EXPOSE	3306
 
-CMD		["bash /tmp/init.sh"]
+CMD		["bash", "/tmp/init.sh"]

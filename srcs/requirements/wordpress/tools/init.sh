@@ -10,7 +10,6 @@ sed -i -e "s|DATABASE_NAME|'$DATABASE_NAME'|g" /var/www/html/wp-config.php
 sed -i -e "s|DATABASE_USR|'$DATABASE_USR'|g" /var/www/html/wp-config.php
 sed -i -e "s|DATABASE_PWD|'$DATABASE_PWD'|g" /var/www/html/wp-config.php
 sed -i -e "s|;daemonize = yes|daemonize = no|g" /etc/php/7.3/fpm/php-fpm.conf
-sed -i -e "s|;daemonize = yes|daemonize = no|g" /etc/php/7.3/fpm/php-fpm.conf
 sed -i -e "s|;clear_env = no|clear_env = no|g" /etc/php/7.3/fpm/pool.d/www.conf
 mkdir -p /run/php/
 
