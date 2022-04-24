@@ -7,7 +7,7 @@ RUN 	openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 \
 		-subj "/C=KR/ST=Korea/L=Seoul/O=42school/OU=sunhkim/CN=sunhkim" \
 		-keyout /etc/ssl/private/sunhkim.key -out /etc/ssl/certs/sunhkim.crt
       
-RUN		echo "127.0.0.1		$DOMAIN_NAME" >> /etc/hosts    
+COPY	./conf/hosts /etc/hosts    
 COPY	./conf/nginx.conf /etc/nginx/nginx.conf
 
 ENTRYPOINT  ["/usr/bin/dumb-init"]
