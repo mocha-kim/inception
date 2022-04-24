@@ -51,10 +51,10 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /Users/$USER/data/mariadb
+      device: /home/data/mariadb
   wordpress:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /Users/$USER/data/wordpress
+      device: /home/data/wordpress
