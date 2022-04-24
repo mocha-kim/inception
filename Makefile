@@ -4,7 +4,7 @@ all		: $(NAME)
 
 $(NAME)	:
 		sudo mkdir "/home/data/wordpress" "/home/data/mariadb"
-		sudo docker-compose -f ../srcs/docker-compose.yml up --force-recreate --build -d
+		sudo docker-compose -f ./srcs/docker-compose.yml up --force-recreate --build -d
 
 clean	:
 		sudo docker-compose -f srcs/docker-compose.yml down -v --rmi all --remove-orphans
