@@ -1,6 +1,5 @@
 #!bin/bash/
 mv wordpress/* /var/www/html/
-cat "wordpress files moved"
 rm latest.tar.gz
 rm -r wordpress
 
@@ -15,4 +14,5 @@ sed -i -e "s|;daemonize = yes|daemonize = no|g" /etc/php/7.3/fpm/php-fpm.conf
 sed -i -e "s|;clear_env = no|clear_env = no|g" /etc/php/7.3/fpm/pool.d/www.conf
 mkdir -p /run/php/
 
+echo "127.0.0.1	$DOMAIN_NAME" >> /etc/hosts
 exec /usr/sbin/php-fpm7.3
