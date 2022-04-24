@@ -1,10 +1,11 @@
 #!bin/bash/
-mv wordpress/ /var/www/html/
+mv wordpress/* /var/www/html/
 cat "wordpress files moved"
 rm latest.tar.gz
+rm -r wordpress
 
-mv /tmp/wp-config.php /var/www/wordpress/
-chown -R www-data:www-data /var/www/wordpress/
+mv /tmp/wp-config.php /var/www/html/
+chown -R www-data:www-data /var/www/html/
 
 sed -i -e "s|DATABASE_NAME|'$DATABASE_NAME'|g" /var/www/html/wp-config.php
 sed -i -e "s|MYSQL_USER|'$MYSQL_USER'|g" /var/www/html/wp-config.php
