@@ -7,7 +7,7 @@ $(NAME)	:
 		sudo docker-compose -f ./srcs/docker-compose.yml up --force-recreate --build -d
 
 clean	:
-		sudo docker-compose -f srcs/docker-compose.yml down -v --rmi all --remove-orphans
+		sudo docker-compose -f ./srcs/docker-compose.yml down -v --rmi all --remove-orphans
 
 fclean	: clean
 		sudo rm -rf "/home/data/wordpress" "/home/data/mariadb"
@@ -19,16 +19,12 @@ fclean	: clean
 re		: fclean all
 
 up		:
-		sudo docker-compose -f ../srcs/docker-compose.yml up
+		sudo docker-compose -f ./srcs/docker-compose.yml up
 
-<<<<<<< HEAD
-.PHONY	: all clean fclean re ps
-=======
-down	:
+down		:
 		sudo docker-compose -f srcs/docker-compose.yml down
 
 ps		:
 		sudo docker-compose -f srcs/docker-compose.yml ps
 
 .PHONY	: all clean fclean re up down ps
->>>>>>> 44b1c245245ebf0c7213d77d4caa562be725855b
