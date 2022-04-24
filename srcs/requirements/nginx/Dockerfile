@@ -8,9 +8,10 @@ RUN 	openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 \
 		-keyout /etc/ssl/private/sunhkim.key -out /etc/ssl/certs/sunhkim.crt
       
 COPY	./conf/nginx.conf /etc/nginx/nginx.conf
+COPY	./tools/init.sh /tmp/
 
 ENTRYPOINT  ["/usr/bin/dumb-init"]
 
 EXPOSE	443
 
-CMD		["nginx", "-g", "daemon off;"]
+CMD		["bash", "/tmp/init.sh"]
