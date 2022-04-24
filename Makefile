@@ -18,7 +18,13 @@ fclean	: clean
 
 re		: fclean all
 
-ps	:
-	sudo docker-compose -f srcs/docker-compose.yml ps
+up		:
+		sudo docker-compose -f ../srcs/docker-compose.yml up
 
-.PHONY	: all clean fclean re ps
+down	:
+		sudo docker-compose -f srcs/docker-compose.yml down
+
+ps		:
+		sudo docker-compose -f srcs/docker-compose.yml ps
+
+.PHONY	: all clean fclean re up down ps
