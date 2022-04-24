@@ -4,10 +4,10 @@ all		: $(NAME)
 
 $(NAME)	:
 		sudo mkdir "/home/data/wordpress" "/home/data/mariadb"
-		sudo docker-compose -f ../srcs/docker-compose.yml up --force-recreate --build -d
+		sudo docker-compose -f ./srcs/docker-compose.yml up --force-recreate --build -d
 
 clean	:
-		sudo docker-compose -f srcs/docker-compose.yml down -v --rmi all --remove-orphans
+		sudo docker-compose -f ./srcs/docker-compose.yml down -v --rmi all --remove-orphans
 
 fclean	: clean
 		sudo rm -rf "/home/data/wordpress" "/home/data/mariadb"
@@ -19,9 +19,9 @@ fclean	: clean
 re		: fclean all
 
 up		:
-		sudo docker-compose -f ../srcs/docker-compose.yml up
+		sudo docker-compose -f ./srcs/docker-compose.yml up
 
-down	:
+down		:
 		sudo docker-compose -f srcs/docker-compose.yml down
 
 ps		:
