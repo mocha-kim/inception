@@ -8,5 +8,4 @@ echo "CREATE USER IF NOT EXISTS '$DATABASE_USR'@'%' IDENTIFIED BY '$DATABASE_PWD
 echo "GRANT ALL PRIVILEGES ON $DATABASE_NAME.* TO '$DATABASE_USR'@'%';" | mysql -u root
 service mysql stop
 
-sed -i -e "s|localhost|localhost $DOMAIN_NAME|g" /etc/hosts
 exec /usr/sbin/mysqld -u root
