@@ -1,12 +1,6 @@
 #!bin/bash/
-mv wordpress/* /var/www/wordpress/
-rm latest.tar.gz
-rm -r wordpress
-
 mv /tmp/wp-config.php /var/www/wordpress/
 chown -R www-data:www-data /var/www/wordpress/
-
-wp core download
 
 sed -i -e "s|DATABASE_NAME|'$DATABASE_NAME'|g" /var/www/wordpress/wp-config.php
 sed -i -e "s|DATABASE_USR|'$DATABASE_USR'|g" /var/www/wordpress/wp-config.php
