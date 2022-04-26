@@ -25,7 +25,7 @@ services:
     ports:
       - "443:443"
     volumes:
-      - wordpress:/var/www/html
+      - wordpress:/var/www/wordpress
 
   wordpress:
     container_name: wordpress
@@ -39,7 +39,7 @@ services:
     expose:
       - "9000"
     volumes:
-      - wordpress:/var/www/html
+      - wordpress:/var/www/wordpress
 
 networks:
   inception:
@@ -51,10 +51,10 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /home/data/mariadb
+      device: /home/$USER/data/mariadb
   wordpress:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /home/data/wordpress
+      device: /home/$USER/data/wordpress
