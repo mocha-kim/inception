@@ -3,7 +3,7 @@ NAME = inception
 all		: $(NAME)
 
 $(NAME)	:
-		sudo mkdir "/hone/data"
+		sudo mkdir "/home/data"
 		sudo mkdir "/home/data/wordpress" "/home/data/mariadb"
 		sudo docker-compose -f ./srcs/docker-compose.yml up --force-recreate --build -d
 
