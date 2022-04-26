@@ -11,7 +11,7 @@ sed -i -e "s|DATABASE_USR|'$DATABASE_USR'|g" /var/www/html/wp-config.php
 sed -i -e "s|DATABASE_PWD|'$DATABASE_PWD'|g" /var/www/html/wp-config.php
 sed -i -e "s|;daemonize = yes|daemonize = no|g" /etc/php/7.3/fpm/php-fpm.conf
 sed -i -e "s|;clear_env = no|clear_env = no|g" /etc/php/7.3/fpm/pool.d/www.conf
+sed -i -e "s|localhost|localhost $DOMAIN_NAME|g" /etc/hosts
 mkdir -p /run/php/
 
-echo "127.0.0.1	$DOMAIN_NAME" >> /etc/hosts
 exec /usr/sbin/php-fpm7.3
