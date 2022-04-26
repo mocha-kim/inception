@@ -9,7 +9,7 @@ sed -i -e "s|;daemonize = yes|daemonize = no|g" /etc/php/7.3/fpm/php-fpm.conf
 sed -i -e "s|;clear_env = no|clear_env = no|g" /etc/php/7.3/fpm/pool.d/www.conf
 mkdir -p /run/php/
 
-while ! mariadb -h$DATABASE_HOST -P3306 -u$DATABASE_ROOT -p$DATABASE_ROOT_PWD; done
+while ! mariadb -h$DATABASE_HOST -P3306 -u$DATABASE_ROOT -p$DATABASE_ROOT_PWD; do sleep 5; done
 wp core install --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --skip-email --path=/var/www/wordpress/
 wp plugin update --all
 wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD
