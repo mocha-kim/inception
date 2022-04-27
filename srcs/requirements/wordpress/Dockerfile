@@ -7,7 +7,7 @@ COPY	./conf/www.conf /tmp/www.conf
 RUN		mkdir -p /var/www/wordpress
 
 RUN 	apt-get update
-RUN 	apt-get install -y php7.3 php-fpm php-cli wget curl php-mysql php-mbstring php-xml sendmail mariadb-client
+RUN 	apt-get install -y php7.3 php-fpm php-cli wget curl php-mysql php-mbstring php-xml mariadb-client
 RUN		rm -rf /var/lib/apt/lists/*
 RUN		mkdir /run/php
 
