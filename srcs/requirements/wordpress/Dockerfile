@@ -1,8 +1,8 @@
 FROM	debian:buster
 
-COPY	./tools/init.sh /tmp
-COPY	./conf/wp-config.php /tmp
-COPY	./conf/www.conf /tmp
+COPY	./tools/init.sh /tmp/init.sh
+COPY	./conf/wp-config.php /tmp/wp-config.php
+COPY	./conf/www.conf /tmp/www.conf
 
 RUN		apt-get update -y
 RUN		apt-get install -y php-fpm php-mysql wget dumb-init
