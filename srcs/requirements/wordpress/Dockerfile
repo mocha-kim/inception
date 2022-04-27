@@ -2,7 +2,7 @@ FROM	debian:buster
 
 COPY	./tools/init.sh /tmp
 COPY	./conf/wp-config.php /tmp
-COPY	./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
+COPY	./conf/www.conf /tmp
 
 RUN		apt-get update -y
 RUN		apt-get install -y php-fpm php-mysql wget dumb-init
