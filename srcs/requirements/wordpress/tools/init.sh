@@ -8,10 +8,11 @@ sed -i -e "s|DATABASE_PWD|'$DATABASE_PWD'|g" /var/www/wordpress/wp-config.php
 
 sed -i -e "s|;daemonize = yes|daemonize = no|g" /etc/php/7.3/fpm/php-fpm.conf
 
-echo "env[DATABASE_HOST] = \$DATABASE_HOST" >> /etc/php7/php-fpm.d/www.conf
-echo "env[DATABASE_USR] = \$DATABASE_USR" >> /etc/php7/php-fpm.d/www.conf
-echo "env[DATABASE_PWD] = \$DATABASE_PWD" >> /etc/php7/php-fpm.d/www.conf
-echo "env[DATABASE_NAME] = \$DATABASE_NAME" >> /etc/php7/php-fpm.d/www.conf
+echo "env[DATABASE_HOST] = $DATABASE_HOST" >> /etc/php/7.3/fpm/pool.d/www.conf
+echo "env[DATABASE_USR] = $DATABASE_USR" >> /etc/php/7.3/fpm/pool.d/www.conf
+echo "env[DATABASE_PWD] = $DATABASE_PWD" >> /etc/php/7.3/fpm/pool.d/www.conf
+echo "env[DATABASE_NAME] = $DATABASE_NAME" >> /etc/php/7.3/fpm/pool.d/www.conf
+sed -i "s/.*listen = 127.0.0.1.*/listen = 9000/g" /etc/php/7.3/fpm/pool.d/www.conf
 sed -i -e "s|;clear_env = no|clear_env = no|g" /etc/php/7.3/fpm/pool.d/www.conf
 mkdir -p /run/php/
 
