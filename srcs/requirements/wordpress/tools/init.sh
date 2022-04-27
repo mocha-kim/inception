@@ -1,7 +1,9 @@
 #!bin/bash/
+chown -R www-data:www-data /var/www/wordpress/
 mv /tmp/wp-config.php /var/www/wordpress/
 mv /tmp/www.conf /etc/php/7.3/fpm/pool.d/www.conf
-chown -R www-data:www-data /var/www/wordpress/
+mv /wordpress/* /var/www/wordpress/
+rm -rf /wordpress
 
 wp core download --version=5.8.1 --path=/var/www/wordpress --allow-root
 sed -i -e "s|DATABASE_NAME|'$DATABASE_NAME'|g" /var/www/wordpress/wp-config.php
