@@ -5,7 +5,6 @@ mv /wordpress/* /var/www/wordpress/
 rm -rf /wordpress
 chown -R www-data:www-data /var/www/wordpress/
 
-wp core download --version=5.8.1 --path=/var/www/wordpress --allow-root
 sed -i -e "s|DATABASE_NAME|'$DATABASE_NAME'|g" /var/www/wordpress/wp-config.php
 sed -i -e "s|DATABASE_USR|'$DATABASE_USR'|g" /var/www/wordpress/wp-config.php
 sed -i -e "s|DATABASE_PWD|'$DATABASE_PWD'|g" /var/www/wordpress/wp-config.php
