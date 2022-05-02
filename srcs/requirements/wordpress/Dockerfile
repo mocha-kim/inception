@@ -10,7 +10,8 @@ RUN 	apt-get update
 RUN 	apt-get install -y php7.3 php-fpm php-cli wget curl php-mysql php-mbstring php-xml mariadb-client dumb-init
 RUN		rm -rf /var/lib/apt/lists/*
 RUN		mkdir /run/php
-
+RUN		curl -s -L https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --output /usr/bin/wp
+RUN		chmod +x /usr/bin/wp
 RUN		wget https://wordpress.org/latest.tar.gz
 RUN		tar -xvzf latest.tar.gz
 RUN		rm -rf latest.tar.gz
