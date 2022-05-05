@@ -1,6 +1,8 @@
 #!bin/bash/
 
-mv /tmp/wp-config.php /var/www/wordpress/
+wp core download --path=/var/www/wordpress
+
+mv /tmp/wp-config.php /var/www/wordpress/wp-config.php
 mv /tmp/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 chown -R www-data:www-data /var/www/wordpress/
 
