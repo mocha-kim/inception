@@ -10,7 +10,7 @@ sed -i -e "s|DATABASE_PWD|'$DATABASE_PWD'|g" /var/www/wordpress/wp-config.php
 
 sed -i -e "s|;daemonize = yes|daemonize = no|g" /etc/php/7.3/fpm/php-fpm.conf
 
-wp core install --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --skip-email --path='/var/www/wordpress' --allow-root
+wp core install --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --skip-email --path=/var/www/wordpress --allow-root
 wp plugin update --all --allow-root
 wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD --allow-root
 wp post create --post_title="inception" --post_content="content" --post_status=publish --post_author="unknown" --allow-root
