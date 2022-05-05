@@ -20,7 +20,7 @@ fclean	: clean
 re		: fclean all
 
 up		:
-		sudo docker-compose -f srcs/docker-compose.yml up
+		sudo docker-compose -f srcs/docker-compose.yml up --build -d
 
 down	:
 		sudo docker-compose -f srcs/docker-compose.yml down
