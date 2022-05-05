@@ -12,9 +12,6 @@ RUN		rm -rf /var/lib/apt/lists/*
 RUN		mkdir /run/php
 RUN		curl -s -L https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --output /usr/bin/wp
 RUN		chmod +x /usr/bin/wp
-RUN		wget https://wordpress.org/latest.tar.gz
-RUN		tar -xvzf latest.tar.gz
-RUN		rm -rf latest.tar.gz
 
 ENTRYPOINT	["/usr/bin/dumb-init"]
 
