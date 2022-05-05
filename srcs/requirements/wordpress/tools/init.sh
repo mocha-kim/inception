@@ -1,6 +1,6 @@
 #!bin/bash/
 
-wp core download --path='/var/www/wordpress/'
+wp core download --path='/var/www/wordpress/' --allow-root
 
 mv /tmp/wp-config.php /var/www/wordpress/
 mv /tmp/www.conf /etc/php/7.3/fpm/pool.d/www.conf
