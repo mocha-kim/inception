@@ -7,7 +7,7 @@ services:
     env_file: .env
     restart: always
     networks:
-      - network-mariadb
+      - mariadb
     volumes:
       - mariadb:/var/lib/mysql
 
@@ -19,7 +19,7 @@ services:
     depends_on:
       - wordpress
     networks:
-      - network-nginx
+      - nginx
     ports:
       - "443:443"
     volumes:
@@ -33,18 +33,18 @@ services:
     depends_on:
       - mariadb
     networks:
-      - network-mariadb
-      - network-nginx
+      - mariadb
+      - nginx
     volumes:
       - wordpress:/var/www/wordpress
 
 networks:
-  network-mariadb:
+  mariadb:
     driver: bridge
-    name: network-mariadb
-  network-nginx:
+    name: mariadb
+  nginx:
     driver: bridge
-    name: network-nginx
+    name: nginx
 
 volumes:
   mariadb:
