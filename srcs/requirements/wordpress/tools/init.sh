@@ -6,7 +6,7 @@ mv /tmp/wp-config.php /var/www/wordpress/wp-config.php
 mv /tmp/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 chown -R www-data:www-data /var/www/wordpress/
 
-sed -i -e "s|;daemonize = yes|daemonize = no|g" /etc/php/7.3/fpm/php-fpm.conf
+sed -ie "s|;daemonize = yes|daemonize = no|g" /etc/php/7.3/fpm/php-fpm.conf
 
 wp core install --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --skip-email --path=/var/www/wordpress --allow-root
 wp plugin update --all --path=/var/www/wordpress --allow-root

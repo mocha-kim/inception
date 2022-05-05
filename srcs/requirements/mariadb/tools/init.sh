@@ -1,8 +1,8 @@
 #!/bin/sh
 chown -R mysql:mysql /var/lib/mysql
 
-sed -ie 's/bind-address/#bind-address/g' /etc/mysql/mariadb.conf.d/50-server.cnf
-sed -ie 's/#port/port/g' /etc/mysql/mariadb.conf.d/50-server.cnf
+sed -ie "s/bind-address=127.0.0.1/bind-address=0.0.0.0/g" /etc/mysql/mariadb.conf.d/50-server.cnf
+sed -ie "s/#port/port/g" /etc/mysql/mariadb.conf.d/50-server.cnf
 
 # init
 service mysql start
