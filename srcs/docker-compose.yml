@@ -7,9 +7,7 @@ services:
     env_file: .env
     restart: always
     networks:
-      - inception
-    expose:
-      - "3306"
+      - network-mariadb
     volumes:
       - mariadb:/var/lib/mysql
 
@@ -21,7 +19,7 @@ services:
     depends_on:
       - wordpress
     networks:
-      - inception
+      - network-nginx
     ports:
       - "443:443"
     volumes:
@@ -35,26 +33,31 @@ services:
     depends_on:
       - mariadb
     networks:
-      - inception
-    expose:
-      - "9000"
+      - network-mariadb
+      - network-nginx
     volumes:
       - wordpress:/var/www/wordpress
 
 networks:
-  inception:
+  network-mariadb:
     driver: bridge
+    name: network-mariadb
+  network-nginx:
+    driver: bridge
+    name: network-nginx
 
 volumes:
   mariadb:
     driver: local
     driver_opts:
-      type: 'none'
+      type: volume
       o: 'bind'
       device: /home/sunhkim/data/mariadb
+    name: mariadb
   wordpress:
     driver: local
     driver_opts:
-      type: 'none'
+      type: volume
       o: 'bind'
       device: /home/sunhkim/data/wordpress
+    name: wordpress
