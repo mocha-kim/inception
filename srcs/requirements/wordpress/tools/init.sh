@@ -7,7 +7,6 @@ mv /tmp/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 chown -R www-data:www-data /var/www/wordpress/
 
 usermod -a -G www-data www-data
-
 sed -ie "s|;daemonize = yes|daemonize = no|g" /etc/php/7.3/fpm/php-fpm.conf
 
 sleep 100;

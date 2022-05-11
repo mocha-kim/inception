@@ -5,6 +5,7 @@ COPY	./conf/wp-config.php /tmp/wp-config.php
 COPY	./conf/www.conf /tmp/www.conf
 
 RUN		mkdir -p /var/www/wordpress
+RUN		mkdir -p /run/php
 
 RUN 	apt-get update
 RUN 	apt-get install -y php7.3 php-fpm php-cli curl php-mysql mariadb-client dumb-init
