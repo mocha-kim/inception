@@ -8,8 +8,6 @@ services:
     restart: always
     networks:
       - mariadb
-    expose:
-      - "3306"
     volumes:
       - mariadb:/var/lib/mysql
 
@@ -37,8 +35,6 @@ services:
     networks:
       - mariadb
       - nginx
-    expose:
-      - "9000"
     volumes:
       - wordpress:/var/www/wordpress
 
