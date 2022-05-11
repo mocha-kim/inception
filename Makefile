@@ -11,7 +11,7 @@ clean	:
 		sudo docker-compose -f ./srcs/docker-compose.yml down -v --rmi all --remove-orphans
 
 fclean	: clean
-		sudo rm -rf "/home/data"
+		sudo rm -rf "/home/sunhkim/data"
 		sudo rm -f .setup
 		sudo docker system prune --volumes --all --force
 		sudo docker network prune --force
