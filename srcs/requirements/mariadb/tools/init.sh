@@ -1,7 +1,7 @@
 #!/bin/sh
 chown -R mysql:mysql /var/lib/mysql
 
-sed -i "s/bind-address/#bind-address\nbind_address=0.0.0.0/" /etc/mysql/mariadb.conf.d/50-server.cnf
+sed -i "s/.*bind-address\s*=.*/bind-address=0.0.0.0\nport=3306/g" /etc/mysql/mariadb.conf.d/50-server.cnf
 sed -i "s/#port/port/g" /etc/mysql/mariadb.conf.d/50-server.cnf
 
 # init
@@ -21,6 +21,8 @@ GRANT ALL PRIVILEGES ON *.* TO '$MARIADB_ROOT'@'%' IDENTIFIED BY '$MARIADB_ROOT_
 GRANT ALL PRIVILEGES ON $MARIADB_DB.* TO '$MARIADB_USER'@'%' IDENTIFIED BY '$MARIADB_PASSWORD' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EOF
+
+sleep 3
 
 service mysql stop
 
