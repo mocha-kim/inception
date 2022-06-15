@@ -8,9 +8,6 @@ sed -i "s|#port|port |" /etc/mysql/mariadb.conf.d/50-server.cnf
 service mysql start
 
 mysql --user=$MARIADB_ROOT << EOF
-UPDATE mysql.user SET Password=PASSWORD('$MARIADB_ROOT_PASSWORD') WHERE User='$MARIADB_ROOT';
-UPDATE mysql.user SET plugin = '' WHERE User = '$MARIADB_ROOT';
-FLUSH PRIVILEGES;
 DELETE FROM mysql.user WHERE User='';
 DELETE FROM mysql.user WHERE User='$MARIADB_ROOT' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
 FLUSH PRIVILEGES;
@@ -30,4 +27,4 @@ service mysql stop
 
 sleep 10
 
-exec /usr/bin/mysqld -u $MARIADB_ROOT
+exec /usr/sbin/mysqld -u $MARIADB_ROOT
