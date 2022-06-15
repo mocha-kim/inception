@@ -24,6 +24,5 @@ EOF
 
 sleep 10
 service mysql stop
-sleep 10
 
-exec /usr/sbin/mysqld -u $MARIADB_ROOT
+exec mysqld_safe
