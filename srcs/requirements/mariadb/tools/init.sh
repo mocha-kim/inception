@@ -12,7 +12,6 @@ USE mysql;
 FLUSH PRIVILEGES;
 
 UPDATE mysql.user SET Password=PASSWORD('$MARIADB_ROOT_PASSWORD') WHERE User='$MARIADB_ROOT';
-UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user = 'root' AND host = 'localhost';
 FLUSH PRIVILEGES;
 
 DELETE FROM mysql.user WHERE User='';
@@ -37,4 +36,4 @@ service mysql stop
 
 sleep 10
 
-exec /usr/sbin/mysqld -u $MARIADB_ROOT --skip-grant-tables
+exec /usr/sbin/mysqld -u $MARIADB_USER
