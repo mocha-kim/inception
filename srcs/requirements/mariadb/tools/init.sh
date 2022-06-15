@@ -30,3 +30,9 @@ FLUSH PRIVILEGES;
 EOF
 
 sleep 10
+
+service mysql stop
+
+sleep 10
+
+exec /usr/sbin/mysqld -u $MARIADB_ROOT -p $MARIADB_ROOT_PASSWORD
