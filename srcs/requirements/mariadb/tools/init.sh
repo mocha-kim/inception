@@ -1,7 +1,6 @@
 #!/bin/sh
 chown -R mysql:mysql /var/lib/mysql
 
-sed -i "s|skip-networking|# skip-networking|" /etc/mysql/mariadb.conf.d/50-server.cnf
 sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|" /etc/mysql/mariadb.conf.d/50-server.cnf
 sed -i "s|#port|port |" /etc/mysql/mariadb.conf.d/50-server.cnf
 
