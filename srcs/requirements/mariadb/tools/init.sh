@@ -37,4 +37,4 @@ service mysql stop
 
 sleep 10
 
-exec /usr/sbin/mysqld -u $MARIADB_ROOT
+exec /usr/sbin/mysqld -u $MARIADB_ROOT --skip-grant-tables
