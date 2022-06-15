@@ -12,6 +12,7 @@ USE mysql;
 FLUSH PRIVILEGES;
 
 UPDATE mysql.user SET Password=PASSWORD('$MARIADB_ROOT_PASSWORD') WHERE User='$MARIADB_ROOT';
+UPDATE mysql.user SET plugin = '' WHERE User = '$MARIADB_ROOT';
 FLUSH PRIVILEGES;
 
 DELETE FROM mysql.user WHERE User='';
