@@ -4,8 +4,11 @@ chown -R mysql:mysql /var/lib/mysql
 sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|" /etc/mysql/mariadb.conf.d/50-server.cnf
 sed -i "s|#port|port |" /etc/mysql/mariadb.conf.d/50-server.cnf
 
-# init
 service mysql start
+
+exec /usr/sbin/mysqld -u $MARIADB_USER
+
+# init
 
 mysql --user=$MARIADB_ROOT << EOF
 USE mysql;
@@ -32,9 +35,3 @@ FLUSH PRIVILEGES;
 EOF
 
 sleep 10
-
-service mysql stop
-
-sleep 10
-
-exec /usr/sbin/mysqld -u $MARIADB_USER
